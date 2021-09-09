@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_splash_bg"
+    android:orientation="vertical"
+    tools:context=".activities.LoginActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:alpha="0.7"
+        android:background="@color/themeYellow" />
+
+    <RelativeLayout
+        android:id="@+id/rel_data"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_10sdp">
+
+        <EditText
+            android:id="@+id/edt_username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_20sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:background="@drawable/bg_border"
+            android:fontFamily="@font/montserrat_regular"
+            android:hint="@string/username"
+            android:padding="@dimen/_10sdp"
+            android:singleLine="true"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorWhite"
+            android:textSize="@dimen/_12sdp" />
+
+        <TextView
+            android:id="@+id/tv_error_name"
+            style="@style/TextViewWaring"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edt_username"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:text="This field cannot be empty."
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/edt_mobile_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edt_username"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_22sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:background="@drawable/bg_border"
+            android:fontFamily="@font/montserrat_regular"
+            android:hint="@string/mobile_number"
+            android:inputType="number"
+            android:maxLength="13"
+            android:padding="@dimen/_10sdp"
+            android:singleLine="true"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorWhite"
+            android:textSize="@dimen/_12sdp" />
+
+        <TextView
+            android:id="@+id/tv_error_number"
+            style="@style/TextViewWaring"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edt_mobile_number"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:text="Please Enter Mobile Number"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/edt_email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edt_mobile_number"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_22sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:background="@drawable/bg_border"
+            android:fontFamily="@font/montserrat_regular"
+            android:hint="@string/email_address"
+            android:inputType="textEmailAddress"
+            android:padding="@dimen/_10sdp"
+            android:singleLine="true"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorWhite"
+            android:textSize="@dimen/_12sdp" />
+
+        <TextView
+            android:id="@+id/tv_error_email"
+            style="@style/TextViewWaring"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edt_email"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/edt_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edt_email"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_22sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:background="@drawable/bg_border"
+            android:drawableEnd="@drawable/password_visible"
+            android:drawableTint="@color/colorWhite"
+            android:fontFamily="@font/montserrat_regular"
+            android:hint="@string/password"
+            android:inputType="text"
+            android:padding="@dimen/_10sdp"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorWhite"
+            android:textSize="@dimen/_12sdp" />
+
+        <TextView
+            android:id="@+id/tv_error_password"
+            style="@style/TextViewWaring"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edt_password"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:text="Please Enter Password."
+            android:visibility="gone" />
+
+        <EditText
+            android:id="@+id/edt_cnf_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edt_password"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_22sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:background="@drawable/bg_border"
+            android:drawableEnd="@drawable/password_visible"
+            android:drawableTint="@color/colorWhite"
+            android:fontFamily="@font/montserrat_regular"
+            android:hint="@string/confirm_password"
+            android:inputType="text"
+            android:padding="@dimen/_10sdp"
+            android:textColor="@color/colorWhite"
+            android:textColorHint="@color/colorWhite"
+            android:textSize="@dimen/_12sdp" />
+
+        <TextView
+            android:id="@+id/tv_error_cnf_password"
+            style="@style/TextViewWaring"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/edt_cnf_password"
+            android:layout_marginStart="@dimen/_20sdp"
+            android:layout_marginTop="@dimen/_3sdp"
+            android:layout_marginEnd="@dimen/_20sdp"
+            android:text="Please Enter Password."
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rel_data"
+        android:layout_gravity="center"
+        android:layout_marginStart="@dimen/_50sdp"
+        android:layout_marginTop="@dimen/_30sdp"
+        android:layout_marginEnd="@dimen/_50sdp"
+        android:background="@drawable/curve_button"
+        android:fontFamily="@font/montserrat_bold"
+        android:padding="@dimen/_8sdp"
+        android:text="@string/register"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_12sdp" />
+
+    <TextView
+        android:id="@+id/tv_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/btn_register"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/montserrat_bold"
+        android:padding="@dimen/_10sdp"
+        android:text="@string/login"
+        android:textColor="@color/colorWhite"
+        android:textSize="@dimen/_12sdp" />
+
+</RelativeLayout>

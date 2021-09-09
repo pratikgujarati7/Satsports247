@@ -1,0 +1,528 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <import type="androidx.core.content.ContextCompat" />
+
+        <variable
+            name="position"
+            type="Integer" />
+
+        <variable
+            name="runner"
+            type="com.satsports247.dataModels.RunnerModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="@dimen/_10sdp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_toStartOf="@id/rel_rates"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_team_name1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{runner.name}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_team_profit"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@{runner.ProfitValue}"
+                    android:textColor="@{ContextCompat.getColor(context, runner.profitTextColor)}"
+                    android:textSize="@dimen/_10sdp" />
+
+                <ImageView
+                    android:id="@+id/iv_graph"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="@dimen/_15sdp"
+                    android:src="@drawable/ic_graph"
+                    android:visibility="gone"
+                    app:tint="@color/colorBlack" />
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/rel_rates"
+                android:layout_width="@dimen/_122sdp"
+                android:layout_height="@dimen/_40sdp"
+                android:layout_alignParentEnd="true">
+
+                <LinearLayout
+                    android:id="@+id/ll_blue1"
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="match_parent"
+                    android:layout_toStartOf="@id/ll_pink1"
+                    android:background="@{runner.changeBackBgColor ? @color/colorYellow : @color/colorMediumBlue}"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_back_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{runner.backRate}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_10sdp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_back_volume"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="@{runner.backBFVolume}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_10sdp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_pink1"
+                    android:layout_width="@dimen/_62sdp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:background="@{runner.changeLayBgColor ?  @color/colorYellow : @color/colorPink}"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tv_lay_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@{runner.layRate}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_10sdp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_lay_volume"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="@{runner.layBFVolume}"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_10sdp" />
+
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rel_keyboard1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorLightBlue"
+            android:paddingStart="@dimen/_10sdp"
+            android:paddingEnd="@dimen/_10sdp"
+            android:paddingBottom="@dimen/_10sdp"
+            android:visibility="@{runner.keyboardOpen ? View.VISIBLE : View.GONE}">
+
+            <RelativeLayout
+                android:id="@+id/rel_top"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/_5sdp">
+
+                <TextView
+                    android:id="@+id/tv_stake_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:text="@string/stake_limit"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_8sdp" />
+
+                <TextView
+                    android:id="@+id/tv_stake_limit_value"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:layout_marginEnd="@dimen/_10sdp"
+                    android:layout_toStartOf="@id/tv_max_profit_label"
+                    android:layout_toEndOf="@id/tv_stake_label"
+                    android:textAllCaps="true"
+                    android:textColor="@color/btnRed"
+                    android:textSize="@dimen/_8sdp" />
+
+                <TextView
+                    android:id="@+id/tv_max_profit_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toStartOf="@id/tv_max_profit_value"
+                    android:text="@string/max_profit"
+                    android:textAllCaps="true"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_8sdp" />
+
+                <TextView
+                    android:id="@+id/tv_max_profit_value"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:textAllCaps="true"
+                    android:textColor="@color/btnRed"
+                    android:textSize="@dimen/_8sdp" />
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_minus_plus"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/rel_top"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:weightSum="1">
+
+                <TextView
+                    android:id="@+id/tv_fancy_rate"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:maxLength="6"
+                    android:visibility="gone"
+                    android:gravity="center"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_12sdp"
+                    android:fontFamily="@font/montserrat_medium"
+                    android:layout_weight="0.48" />
+
+                <LinearLayout
+                    android:id="@+id/ll_value1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.48"
+                    android:background="@drawable/bg_plus_minus_blue"
+                    android:gravity="center"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/_2sdp">
+
+                    <ImageView
+                        android:id="@+id/iv_bl_minus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:src="@drawable/ic_minus" />
+
+                    <EditText
+                        android:id="@+id/edt_rate_value_1"
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:gravity="center"
+                        android:maxLength="6"
+                        android:text="00"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <ImageView
+                        android:id="@+id/iv_bl_plus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="@dimen/_5sdp"
+                        android:src="@drawable/ic_plus" />
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.04" />
+
+                <LinearLayout
+                    android:id="@+id/ll_stake_value1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.48"
+                    android:background="@drawable/bg_plus_minus_blue"
+                    android:gravity="center"
+                    android:padding="@dimen/_2sdp">
+
+                    <ImageView
+                        android:id="@+id/iv_stake_minus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/_5sdp"
+                        android:src="@drawable/ic_minus" />
+
+                    <EditText
+                        android:id="@+id/edt_stk_value_1"
+                        android:layout_width="@dimen/_80sdp"
+                        android:layout_height="wrap_content"
+                        android:background="@null"
+                        android:gravity="center"
+                        android:maxLength="6"
+                        android:text="00"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <ImageView
+                        android:id="@+id/iv_stake_plus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:padding="@dimen/_5sdp"
+                        android:src="@drawable/ic_plus" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <HorizontalScrollView
+                android:id="@+id/horizontal_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ll_minus_plus"
+                android:layout_marginTop="@dimen/_8sdp"
+                android:layout_marginBottom="@dimen/_8sdp"
+                android:scrollbars="none">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/tv1_chip_1"
+                        android:layout_width="@dimen/_70sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@drawable/curve_button"
+                        android:backgroundTint="@color/themeYellow"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:gravity="center"
+                        android:padding="@dimen/_5sdp"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <TextView
+                        android:id="@+id/tv1_chip_2"
+                        android:layout_width="@dimen/_70sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@drawable/curve_button"
+                        android:backgroundTint="@color/themeYellow"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:gravity="center"
+                        android:padding="@dimen/_5sdp"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <TextView
+                        android:id="@+id/tv1_chip_3"
+                        android:layout_width="@dimen/_70sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@drawable/curve_button"
+                        android:backgroundTint="@color/themeYellow"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:gravity="center"
+                        android:padding="@dimen/_5sdp"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <TextView
+                        android:id="@+id/tv1_chip_4"
+                        android:layout_width="@dimen/_70sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@drawable/curve_button"
+                        android:backgroundTint="@color/themeYellow"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:gravity="center"
+                        android:padding="@dimen/_5sdp"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <TextView
+                        android:id="@+id/tv1_chip_5"
+                        android:layout_width="@dimen/_70sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@drawable/curve_button"
+                        android:backgroundTint="@color/themeYellow"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:gravity="center"
+                        android:padding="@dimen/_5sdp"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <TextView
+                        android:id="@+id/tv1_chip_6"
+                        android:layout_width="@dimen/_70sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_10sdp"
+                        android:background="@drawable/curve_button"
+                        android:backgroundTint="@color/themeYellow"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:gravity="center"
+                        android:padding="@dimen/_5sdp"
+                        android:textColor="@color/colorBlack"
+                        android:textSize="@dimen/_10sdp" />
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <TableLayout
+                android:id="@+id/keyboard1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/horizontal_view"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginBottom="@dimen/_10sdp"
+                android:divider="@drawable/keyboard_divider"
+                android:orientation="vertical"
+                android:showDividers="beginning|middle|end">
+
+                <TableRow style="@style/keyboard_row">
+
+                    <TextView
+                        android:id="@+id/key_1_t1"
+                        style="@style/keyboard_button_border"
+                        android:text="1" />
+
+                    <TextView
+                        android:id="@+id/key_2_t1"
+                        style="@style/keyboard_button_border"
+                        android:text="2" />
+
+                    <TextView
+                        android:id="@+id/key_3_t1"
+                        style="@style/keyboard_button_border"
+                        android:text="3" />
+
+                    <TextView
+                        android:id="@+id/key_4_t1"
+                        style="@style/keyboard_button_border"
+                        android:text="4" />
+
+                    <TextView
+                        android:id="@+id/key_5_t1"
+                        style="@style/keyboard_button_border"
+                        android:text="5" />
+
+                </TableRow>
+
+                <TableRow style="@style/keyboard_row">
+
+                    <TextView
+                        android:id="@+id/key_6_t1"
+                        style="@style/keyboard_button_border"
+                        android:text="6" />
+
+                    <TextView
+                        android:id="@+id/key_7_t1"
+                        style="@style/keyboard_button_border"
+                        android:text="7" />
+
+                    <TextView
+                        android:id="@+id/key_8_t1"
+                        style="@style/keyboard_button_border"
+                        android:text="8" />
+
+                    <TextView
+                        android:id="@+id/key_9_t1"
+                        style="@style/keyboard_button_border"
+                        android:text="9" />
+
+                    <TextView
+                        android:id="@+id/key_0_t1"
+                        style="@style/keyboard_button_border"
+                        android:text="0" />
+
+                </TableRow>
+
+                <TableRow style="@style/keyboard_row">
+
+                    <TextView
+                        android:id="@+id/key_00_t1"
+                        style="@style/keyboard_button_border"
+                        android:text="00" />
+
+                    <TextView
+                        android:id="@+id/key_000_t1"
+                        style="@style/keyboard_button_border"
+                        android:text="000" />
+
+                    <TextView
+                        android:id="@+id/key_dot_t1"
+                        style="@style/keyboard_button_border"
+                        android:text="."
+                        android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                    <TextView
+                        android:id="@+id/key_back_t1"
+                        style="@style/keyboard_button_border"
+                        android:text="Back" />
+
+                    <TextView
+                        android:id="@+id/key_clear_t1"
+                        style="@style/keyboard_button_border"
+                        android:text="Clear" />
+
+                </TableRow>
+            </TableLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/keyboard1"
+                android:weightSum="1">
+
+                <Button
+                    android:id="@+id/btn_cancel"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_weight="0.48"
+                    android:background="@drawable/curve_button"
+                    android:text="@string/cancel"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_10sdp" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="0.04" />
+
+                <Button
+                    android:id="@+id/btn_place_bet"
+                    android:layout_width="0dp"
+                    android:layout_height="@dimen/_30sdp"
+                    android:layout_gravity="end"
+                    android:layout_weight="0.48"
+                    android:background="@drawable/curve_button"
+                    android:backgroundTint="@color/colorBlack"
+                    android:text="@string/place_bet"
+                    android:textColor="@color/colorWhite"
+                    android:textSize="@dimen/_10sdp" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</layout>

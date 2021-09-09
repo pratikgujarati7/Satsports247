@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/info_dialouge_corner"
+    android:orientation="vertical"
+    android:padding="@dimen/_5sdp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_10sdp"
+        android:layout_marginTop="@dimen/_10sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:layout_marginBottom="@dimen/_5sdp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:fontFamily="@font/montserrat_bold"
+            android:text="Run Position"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_15sdp" />
+
+        <ImageView
+            android:id="@+id/iv_close"
+            android:layout_width="@dimen/_22sdp"
+            android:layout_height="@dimen/_22sdp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerInParent="true"
+            android:padding="@dimen/_5sdp"
+            android:src="@drawable/ic_close"
+            app:tint="@color/colorBlack" />
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_1sdp"
+        android:background="@color/themeYellow" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_30sdp"
+        android:layout_marginTop="@dimen/_5sdp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:text="Run"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_12sdp" />
+
+<!--        <View-->
+<!--            android:layout_width="@dimen/_1sdp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:background="@color/colorBlack"/>-->
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:gravity="center"
+            android:text="Value"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_12sdp" />
+
+    </LinearLayout>
+<!--    <View-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="@dimen/_1sdp"-->
+<!--        android:background="@color/colorBlack"/>-->
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/run_position_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

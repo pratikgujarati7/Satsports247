@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorLightYellow"
+        android:padding="@dimen/_8sdp">
+
+        <TextView
+            android:id="@+id/tv_match_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/_10sdp"
+            android:layout_toStartOf="@id/tv_type_label"
+            android:fontFamily="@font/montserrat_medium"
+            android:maxLines="3"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_10sdp" />
+
+        <TextView
+            android:id="@+id/tv_type_label"
+            android:layout_width="@dimen/_30sdp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/tv_runs_label"
+            android:fontFamily="@font/montserrat_medium"
+            android:gravity="center"
+            android:text="@string/type"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_10sdp" />
+
+        <TextView
+            android:id="@+id/tv_runs_label"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/tv_odds_label"
+            android:fontFamily="@font/montserrat_medium"
+            android:gravity="center"
+            android:text="@string/runs"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_10sdp" />
+
+        <TextView
+            android:id="@+id/tv_odds_label"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/tv_stake_label"
+            android:fontFamily="@font/montserrat_medium"
+            android:gravity="center"
+            android:text="@string/odds"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_10sdp" />
+
+        <TextView
+            android:id="@+id/tv_stake_label"
+            android:layout_width="@dimen/_35sdp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toStartOf="@id/tv_pl_label"
+            android:fontFamily="@font/montserrat_medium"
+            android:gravity="center"
+            android:text="@string/stake"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_10sdp" />
+
+        <TextView
+            android:id="@+id/tv_pl_label"
+            android:layout_width="@dimen/_25sdp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="@string/pl"
+            android:textAlignment="center"
+            android:textColor="@color/colorBlack"
+            android:textSize="@dimen/_10sdp" />
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_market"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+</LinearLayout>

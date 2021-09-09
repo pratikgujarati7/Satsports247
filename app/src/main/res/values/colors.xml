@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#0066FF</color>
+    <color name="colorDarkBlue">#0000FF</color>
+    <color name="colorYellow">#FFC107</color>
+    <color name="colorMediumBlue">#80CAE1</color>
+    <color name="colorPink">#DDA5EA</color>
+    <color name="colorLightPink">#FFE4F8</color>
+    <color name="colorRed">#FF0000</color>
+    <color name="colorLightBlue">#2855A8EA</color>
+    <color name="colorWhite">#FFF</color>
+    <color name="colorBlack">#000</color>
+    <color name="colorLightBlack">#1E2326</color>
+    <color name="colorGrey">#c0c0c0</color>
+    <color name="bgColor">#73284A</color>
+    <color name="colorLightMarket">#D8C1CB</color>
+    <color name="bgColorSplash">#52314C</color>
+    <color name="bgColorLight">#854B57</color>
+    <color name="btnRed">#E00051</color>
+    <color name="bgCard">#45222F</color>
+    <color name="colorGreen">#0F0</color>
+    <color name="bgButtonOrange">#FF5B5B</color>
+    <color name="bgBrown">#C8AEB0</color>
+    <color name="colorTab">#E11953</color>
+    <color name="themeYellow">#FEB514</color>
+    <color name="colorLightYellow">#EFE4B0</color>
+</resources>

@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="match"
+            type="com.satsports247.dataModels.MarketDataModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorBlack"
+            android:padding="@dimen/_10sdp">
+
+            <LinearLayout
+                android:id="@+id/ll_end"
+                android:layout_width="wrap_content"
+                android:layout_height="@dimen/_25sdp"
+                android:layout_alignParentEnd="true">
+
+                <ImageView
+                    android:id="@+id/iv_live"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="match_parent"
+                    android:background="@drawable/bg_circle_filled_yellow"
+                    android:padding="@dimen/_5sdp"
+                    android:src="@drawable/ic_live" />
+
+                <ImageView
+                    android:id="@+id/iv_pinned"
+                    android:layout_width="@dimen/_25sdp"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center"
+                    android:background="?android:attr/selectableItemBackground"
+                    android:padding="@dimen/_3sdp"
+                    android:src="@drawable/ic_pin"
+                    app:tint="@color/themeYellow" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_match_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/_15sdp"
+                android:layout_marginBottom="@dimen/_5sdp"
+                android:layout_toStartOf="@id/ll_end"
+                android:fontFamily="@font/montserrat_bold"
+                android:maxLines="2"
+                android:text="@{match.matchName}"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_12sdp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tv_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_match_name"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@{match.openDate}"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:id="@+id/tv_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_match_name"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_toEndOf="@+id/tv_date"
+                android:fontFamily="@font/montserrat_regular"
+                android:text="@{match.openDate}"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_10sdp" />
+
+            <TextView
+                android:id="@+id/tv_timer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_match_name"
+                android:layout_marginStart="@dimen/_12sdp"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:layout_marginEnd="@dimen/_5sdp"
+                android:layout_toEndOf="@id/tv_time"
+                android:background="@drawable/bg_curve_blue"
+                android:fontFamily="@font/montserrat_regular"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:textAlignment="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_10sdp" />
+
+            <LinearLayout
+                android:id="@+id/ll_in_play"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_date"
+                android:layout_marginTop="@dimen/_5sdp"
+                android:gravity="center_vertical"
+                android:visibility="gone">
+
+                <ImageView
+                    android:id="@+id/iv_dot"
+                    android:layout_width="@dimen/_10sdp"
+                    android:layout_height="@dimen/_10sdp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/bg_green_circular" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_8sdp"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:maxLines="2"
+                    android:text="@string/in_play"
+                    android:textColor="@color/colorGreen"
+                    android:textSize="@dimen/_12sdp" />
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorBlack"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingTop="@dimen/_3sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_3sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@{match.inningType}"
+                    android:textColor="@color/themeYellow"
+                    android:textSize="@dimen/_10sdp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorBlack"
+                android:padding="@dimen/_10sdp">
+
+                <LinearLayout
+                    android:id="@+id/ll_batting_team"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/ll_bowling_team"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="@dimen/_8sdp"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="@{match.battingTeam}"
+                        android:textColor="@color/themeYellow"
+                        android:textSize="@dimen/_12sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="@{match.runWicketOverBatT}"
+                        android:textColor="@color/themeYellow"
+                        android:textSize="@dimen/_10sdp" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/ll_bowling_team"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginTop="@dimen/_2sdp"
+                    android:gravity="end"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="@{match.bowlingTeam}"
+                        android:textColor="@color/themeYellow"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/montserrat_regular"
+                        android:text="@{match.runWicketOverBowlT}"
+                        android:textColor="@color/themeYellow"
+                        android:textSize="@dimen/_10sdp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="@dimen/_170sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ll_batting_team"
+                    android:layout_alignParentStart="true"
+                    android:layout_marginEnd="@dimen/_15sdp"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:maxLines="2"
+                    android:text="@{match.tossStatus}"
+                    android:textColor="@color/themeYellow"
+                    android:textSize="@dimen/_10sdp" />
+
+                <TextView
+                    android:id="@+id/tv_open_detail_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ll_batting_team"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/bg_curve_blue"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_2sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:text="+ Detail Score"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_10sdp" />
+
+                <TextView
+                    android:id="@+id/tv_close_detail_score"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/ll_batting_team"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/bg_curve_blue"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_2sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_2sdp"
+                    android:text="- Detail Score"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_10sdp"
+                    android:visibility="gone" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:id="@+id/ll_detailed_score"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_150sdp"
+            android:visibility="gone">
+
+            <WebView
+                android:id="@+id/score_web"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <TextView
+                android:id="@+id/tv_no_score_url"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="@string/the_feed_is_not_available"
+                android:visibility="gone" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/ll_socket_score"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/_200sdp"
+            android:background="@drawable/bg_ground"
+            android:orientation="vertical"
+            android:visibility="@{match.inPlay ? View.VISIBLE : View.GONE}">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:alpha="0.4"
+                android:background="@color/colorBlack" />
+
+            <LinearLayout
+                android:id="@+id/ll_co"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/_5sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="C O"
+                    android:textColor="@color/colorWhite" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_current_over"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:nestedScrollingEnabled="false"
+                    android:scrollbars="none"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:setMultiCurrentOvers="@{match.currentOverRuns}"
+                    tools:listitem="@layout/layout_overs" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_lo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ll_co"
+                android:layout_margin="@dimen/_5sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="L O"
+                    android:textColor="@color/colorWhite" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recycler_last_over"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="@dimen/_5sdp"
+                    android:nestedScrollingEnabled="false"
+                    android:scrollbars="none"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    app:setMultiLastOvers="@{match.lastOverRuns}"
+                    tools:listitem="@layout/layout_overs" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tv_run_rate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ll_lo"
+                android:layout_marginStart="@dimen/_5sdp"
+                android:text="@{match.runRate}"
+                android:textColor="@color/colorWhite" />
+
+            <TextView
+                android:id="@+id/tv_run_rate_required"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ll_lo"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_toEndOf="@id/tv_run_rate"
+                android:text="@{match.requiredRunRate}"
+                android:textColor="@color/colorWhite" />
+
+            <TextView
+                android:id="@+id/tv_run_required"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/ll_lo"
+                android:layout_marginStart="@dimen/_15sdp"
+                android:layout_toEndOf="@id/tv_run_rate_required"
+                android:text="@{match.requiredRuns}"
+                android:textColor="@color/colorWhite" />
+
+            <TextView
+                android:id="@+id/tv_required"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tv_run_rate"
+                android:layout_margin="@dimen/_5sdp"
+                android:text="@{match.requiredText}"
+                android:textColor="@color/colorWhite" />
+
+            <View
+                android:id="@+id/view"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_1sdp"
+                android:layout_below="@id/tv_required"
+                android:background="@color/colorWhite" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/view"
+                android:weightSum="10">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="6"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_10sdp">
+
+                    <TextView
+                        android:id="@+id/tv_bat_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="Batsman"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorWhite" />
+
+                    <TextView
+                        android:id="@+id/tv_striker_name"
+                        android:layout_width="@dimen/_70sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_bat_label"
+                        android:maxLines="2"
+                        android:text="@{match.strikerName}"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <TextView
+                        android:id="@+id/tv_striker_runs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_striker_name"
+                        android:text="@{match.runsStriker}"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <TextView
+                        android:id="@+id/tv_non_striker_name"
+                        android:layout_width="@dimen/_70sdp"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_bat_label"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="end"
+                        android:maxLines="2"
+                        android:text="@{match.nonStrikername}"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <TextView
+                        android:id="@+id/tv_non_striker_runs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_non_striker_name"
+                        android:layout_alignParentEnd="true"
+                        android:gravity="end"
+                        android:text="@{match.runsNonStriker}"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_10sdp" />
+
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="@dimen/_1sdp"
+                    android:layout_height="match_parent"
+                    android:background="@color/colorWhite" />
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="4"
+                    android:paddingStart="@dimen/_10sdp"
+                    android:paddingTop="@dimen/_5sdp"
+                    android:paddingEnd="@dimen/_10sdp"
+                    android:paddingBottom="@dimen/_10sdp">
+
+                    <TextView
+                        android:id="@+id/tv_bowl_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:fontFamily="@font/montserrat_bold"
+                        android:text="Bowler"
+                        android:textAllCaps="true"
+                        android:textColor="@color/colorWhite" />
+
+                    <TextView
+                        android:id="@+id/tv_bowler_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_bowl_label"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginStart="@dimen/_5sdp"
+                        android:layout_marginEnd="@dimen/_5sdp"
+                        android:gravity="center"
+                        android:maxLines="2"
+                        android:text="@{match.bowler}"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_10sdp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/tv_bowler_name"
+                        android:layout_centerHorizontal="true"
+                        android:text="@{match.runsBowler}"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="@dimen/_10sdp" />
+
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_market_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:nestedScrollingEnabled="false"
+            android:scrollbars="none"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:setMarkets="@{match.market}"
+            tools:listitem="@layout/layout_market_item" />
+
+    </LinearLayout>
+
+</layout>

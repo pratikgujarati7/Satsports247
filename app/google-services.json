@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "388268800667",
+    "firebase_url": "https://satsports247.firebaseio.com",
+    "project_id": "satsports247",
+    "storage_bucket": "satsports247.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:388268800667:android:426ab8de53a89dac6b243e",
+        "android_client_info": {
+          "package_name": "com.satsports247"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "388268800667-q58l5cj18deajtvr8suol96bbrt1hlq7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.satsports247",
+            "certificate_hash": "7a21ccd638624498ffa8146a2042ae6a512572e7"
+          }
+        },
+        {
+          "client_id": "388268800667-647cs1s72t71i8ui8d8markpodstrlam.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjtIxYv73Jp2xqfuyohzSuBlR9V-brL7s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "388268800667-647cs1s72t71i8ui8d8markpodstrlam.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/rel_main"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/_135sdp"
+    android:layout_margin="@dimen/_5sdp">
+
+    <ImageView
+        android:id="@+id/iv_game"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <TextView
+        android:id="@+id/tv_game_name"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_40sdp"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bg_gradient"
+        android:fontFamily="@font/montserrat_bold"
+        android:gravity="center"
+        android:maxLines="3"
+        android:paddingTop="@dimen/_5sdp"
+        android:paddingBottom="@dimen/_5sdp"
+        android:textColor="@color/colorBlack"
+        android:textSize="@dimen/_12sdp" />
+
+</RelativeLayout>

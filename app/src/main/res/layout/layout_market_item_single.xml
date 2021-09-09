@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="market"
+            type="com.satsports247.dataModels.MarketModel" />
+
+        <import type="android.view.View" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/ll_head"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:id="@+id/rel_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorLightYellow"
+                android:paddingStart="@dimen/_10sdp"
+                android:paddingTop="@dimen/_3sdp"
+                android:paddingEnd="@dimen/_10sdp"
+                android:paddingBottom="@dimen/_3sdp">
+
+                <TextView
+                    android:id="@+id/txt_market_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_toStartOf="@id/tv_current_time"
+                    android:fontFamily="@font/montserrat_bold"
+                    android:maxLines="2"
+                    android:text="@{market.marketName}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_current_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:fontFamily="@font/montserrat_regular"
+                    android:text="@{market.socketTime}"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_10sdp" />
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:id="@+id/rel_back_lay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/_5sdp">
+
+                <TextView
+                    android:id="@+id/tv_back"
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="@dimen/_2sdp"
+                    android:layout_toStartOf="@id/tv_lay"
+                    android:background="@drawable/bg_one_side_curve_blue"
+                    android:paddingTop="@dimen/_3sdp"
+                    android:paddingBottom="@dimen/_3sdp"
+                    android:text="@string/back"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tv_lay"
+                    android:layout_width="@dimen/_60sdp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/bg_one_side_curve_pink"
+                    android:paddingTop="@dimen/_3sdp"
+                    android:paddingBottom="@dimen/_3sdp"
+                    android:text="@string/lay"
+                    android:textAlignment="center"
+                    android:textColor="@color/colorBlack"
+                    android:textSize="@dimen/_10sdp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/ll_head">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_runner_list"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:scrollbars="none"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:setSingleRunners="@{market.runner}"
+                tools:listitem="@layout/layout_runner_item" />
+
+            <TextView
+                android:id="@+id/tv_status"
+                android:layout_width="@dimen/_122sdp"
+                android:layout_height="match_parent"
+                android:layout_gravity="end"
+                android:alpha="0.7"
+                android:background="@color/colorBlack"
+                android:fontFamily="@font/montserrat_bold"
+                android:gravity="center"
+                android:text="@{market.suspendedText}"
+                android:textColor="@color/colorWhite"
+                android:textSize="@dimen/_12sdp"
+                android:visibility="@{market.showSuspended ? View.VISIBLE : View.GONE}" />
+        </FrameLayout>
+    </RelativeLayout>
+
+</layout>

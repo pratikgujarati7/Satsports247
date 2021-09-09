@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_home"
+        android:icon="@drawable/ic_nav_home"
+        android:title="@string/home" />
+    <item
+        android:id="@+id/action_in_play"
+        android:icon="@drawable/ic_nav_in_play"
+        android:title="@string/in_play" />
+    <item
+        android:id="@+id/action_sports"
+        android:title="" />
+    <item
+        android:id="@+id/action_market"
+        android:icon="@drawable/ic_nav_multi_market"
+        android:title="@string/multi_market" />
+    <item
+        android:id="@+id/action_my_account"
+        android:icon="@drawable/ic_nav_user_account"
+        android:title="@string/my_account" />
+</menu>

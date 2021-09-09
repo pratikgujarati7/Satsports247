@@ -1,0 +1,106 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'realm-android'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.satsports247"
+        minSdkVersion 21
+        targetSdkVersion 30
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [crashlyticsCollectionEnabled: "true"]
+        }
+        debug {
+            manifestPlaceholders = [crashlyticsCollectionEnabled: "true"]
+        }
+    }
+    buildFeatures {
+        viewBinding = true
+    }
+    dataBinding {
+        enabled = true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    realm {
+        kotlinExtensionsEnabled = false // Disable extensions if needed
+        syncEnabled = true
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+        exclude 'META-INF/NOTICE'
+        exclude 'META-INF/LICENSE'
+
+        exclude 'lib/getLibs.ps1'
+        exclude 'lib/getLibs.sh'
+        exclude 'lib/gson-2.2.2.jar'
+    }
+    splits {
+        abi {
+            enable true
+            reset()
+            include 'x86', 'armeabi-v7a'
+            universalApk true
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:1.4.30"
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.4'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+    implementation 'io.reactivex.rxjava2:rxandroid:2.1.1'
+    implementation 'androidx.recyclerview:recyclerview:1.1.0'
+    implementation 'androidx.cardview:cardview:1.0.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.6.1'
+    implementation 'com.squareup.retrofit2:converter-gson:2.6.1'
+    implementation 'com.squareup.retrofit2:adapter-rxjava2:2.3.0'
+    implementation 'com.intuit.sdp:sdp-android:1.0.4'
+    implementation 'com.google.android.material:material:1.2.1'
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'joda-time:joda-time:2.9.9'
+    implementation 'com.github.bumptech.glide:glide:4.11.0'
+    implementation "io.realm:android-adapters:4.0.0"
+    implementation "org.java-websocket:Java-WebSocket:1.5.1"
+    implementation 'com.github.barteksc:android-pdf-viewer:2.8.2'
+    implementation'com.github.devdhar04:MaterialSpinner:v0.1.2'
+
+//    no need to use crashlytics & analytics version when using firebase-bom.
+    implementation platform('com.google.firebase:firebase-bom:25.12.0')
+    implementation 'com.google.firebase:firebase-crashlytics-ktx'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation 'com.google.android.material:material:1.3.0-alpha03'
+
+    implementation 'com.linsea:universalvideoview:1.1.0@aar'
+    implementation 'com.github.rtoshiro.fullscreenvideoview:fullscreenvideoview:1.1.3'
+
+    kapt 'com.android.databinding:compiler:3.1.4'
+}
